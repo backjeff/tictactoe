@@ -20,8 +20,8 @@ data class Board(
         }
     }
 
-    fun setCell(cell: Cell, player: Player) {
-        setCell(cell.first, cell.second, player)
+    fun setCell(cell: Cell, player: Player): Boolean {
+        return setCell(cell.first, cell.second, player)
     }
 
     fun emptyCell(row: Int, column: Int) {
@@ -29,6 +29,8 @@ data class Board(
     }
 
     fun getCell(row: Int, column: Int) = rows[row][column]
+
+    fun getCell(cell: Cell) = rows[cell.first][cell.second]
 
     fun calculateWinner(): Player? {
         for (rowIndex in 0 until rows.size) {

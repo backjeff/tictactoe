@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.backjeff.tictactoe.databinding.ActivityMainBinding
 import com.backjeff.tictactoe.model.Board
+import com.backjeff.tictactoe.model.Cell
 import com.backjeff.tictactoe.model.Player
 
 class MainActivity : WearableActivity() {
@@ -69,48 +70,39 @@ class MainActivity : WearableActivity() {
 
     private fun setupViews() {
         binding.slot1.setOnClickListener {
-            board.setCell(0, 0, Player.X)
-            enemyMove()
+            playMove(Player.X, 0 to 0)
         }
 
         binding.slot2.setOnClickListener {
-            board.setCell(0, 1, Player.X)
-            enemyMove()
+            playMove(Player.X, 0 to 1)
         }
 
         binding.slot3.setOnClickListener {
-            board.setCell(0, 2, Player.X)
-            enemyMove()
+            playMove(Player.X, 0 to 2)
         }
 
         binding.slot4.setOnClickListener {
-            board.setCell(1, 0, Player.X)
-            enemyMove()
+            playMove(Player.X, 1 to 0)
         }
 
         binding.slot5.setOnClickListener {
-            board.setCell(1, 1, Player.X)
-            enemyMove()
+            playMove(Player.X, 1 to 1)
         }
 
         binding.slot6.setOnClickListener {
-            board.setCell(1, 2, Player.X)
-            enemyMove()
+            playMove(Player.X, 1 to 2)
         }
 
         binding.slot7.setOnClickListener {
-            board.setCell(2, 0, Player.X)
-            enemyMove()
+            playMove(Player.X, 2 to 0)
         }
 
         binding.slot8.setOnClickListener {
-            board.setCell(2, 1, Player.X)
-            enemyMove()
+            playMove(Player.X, 2 to 1)
         }
 
         binding.slot9.setOnClickListener {
-            board.setCell(2, 2, Player.X)
-            enemyMove()
+            playMove(Player.X, 2 to 2)
         }
     }
 
@@ -132,12 +124,17 @@ class MainActivity : WearableActivity() {
         slot.setImageDrawable(
             when (value) {
                 Player.X -> resources.getDrawable(R.drawable.x, null)
-                Player.O -> resources.getDrawable(R.drawable.circle, null)
+                Player.O -> resources.getDrawable(R.drawable.o, null)
                 else -> null
             }
         )
     }
 
-    private fun playMove(gameState: MutableList<MutableList<String>>, player: String, slot: Int) {
+    private fun playMove(player: Player, cell: Cell) {
+        if (board.setCell(cell, player)) {
+            enemyMove()
+        } else {
+            Toast.makeText(this, "Invalid move", Toast.LENGTH_SHORT).show()
+        }
     }
 }
