@@ -175,18 +175,18 @@ data class Board(
         oCounter: Int = 0,
         whichLineChecker: (Player?) -> Player?
     ): Player? {
-        if (xCounter >= victoryLength) {
-            return X
-        } else if (oCounter >= victoryLength) {
-            return O
+        return when {
+            xCounter >= victoryLength -> X
+            oCounter >= victoryLength -> O
+            rowIndex < 0 || columnIndex < 0 || rowIndex > rows.size - 1 || columnIndex > rows[rowIndex].size - 1 -> {
+                null // out of bounds
+            }
+            else -> {
+                val cell = rows[rowIndex][columnIndex]
+                whichLineChecker(cell)
+            }
         }
 
-        if (rowIndex < 0 || columnIndex < 0 || rowIndex > rows.size - 1 || columnIndex > rows[rowIndex].size - 1) {
-            return null // out of bounds
-        }
-
-        val cell = rows[rowIndex][columnIndex]
-        return whichLineChecker(cell)
     }
 }
 
