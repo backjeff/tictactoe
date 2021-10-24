@@ -10,11 +10,7 @@ class TicTacToe {
     lateinit var gameState: MutableList<MutableList<String>>
 
     fun startGame() {
-        gameState = mutableListOf(
-            mutableListOf("", "", ""),
-            mutableListOf("", "", ""),
-            mutableListOf("", "", ""),
-        )
+        gameState = createEmptyBoard()
     }
 
     fun playMove(
@@ -61,7 +57,7 @@ class TicTacToe {
 
         emptyCells.forEach { emptyCell ->
             val move = Move(slot = emptyCell)
-            var newGameState = copyGameState(gameState)
+            var newGameState = gameState.toMutableList()
 
             newGameState = playMove(newGameState, player, emptyCell)!!
 
@@ -158,21 +154,6 @@ class TicTacToe {
         return emptyCells
     }
 
-    fun copyGameState(gameState: MutableList<MutableList<String>>): MutableList<MutableList<String>> {
-        val newGameState = mutableListOf(
-            mutableListOf("", "", ""),
-            mutableListOf("", "", ""),
-            mutableListOf("", "", ""),
-        )
-        for (i in 0..2) {
-            for (j in 0..2) {
-                newGameState[i][j] = gameState[i][j]
-            }
-        }
-
-        return newGameState
-    }
-
     fun printBoard(gameState: MutableList<MutableList<String>>) {
         println("--------------")
         println("| " + gameState[0][0] + " || " + gameState[0][1] + " || " + gameState[0][2] + " |")
@@ -183,4 +164,10 @@ class TicTacToe {
         println("--------------")
         println()
     }
+
+    private fun createEmptyBoard() = mutableListOf(
+        mutableListOf("", "", ""),
+        mutableListOf("", "", ""),
+        mutableListOf("", "", ""),
+    )
 }
