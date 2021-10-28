@@ -6,103 +6,36 @@
     android:layout_height="match_parent"
     android:background="@color/bg"
     android:padding="@dimen/inner_frame_layout_padding"
-    tools:context=".MainActivity"
+    tools:context=".GameActivity"
     tools:deviceIds="wear">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/board">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/slot1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="center"
+        <Button
+            android:id="@+id/buttonVsAi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="vs AI"
+            app:layout_constraintBottom_toTopOf="@+id/buttonVsPlayer"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/slot2"
-            app:layout_constraintBottom_toTopOf="@+id/slot4"/>
+            app:layout_constraintVertical_bias="1.0" />
 
-        <ImageView
-            android:id="@+id/slot2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="center"
-            app:layout_constraintStart_toEndOf="@+id/slot1"
-            app:layout_constraintTop_toTopOf="@id/slot1"
-            app:layout_constraintEnd_toStartOf="@+id/slot3"
-            app:layout_constraintBottom_toTopOf="@id/slot5"/>
-
-        <ImageView
-            android:id="@+id/slot3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="center"
-            app:layout_constraintStart_toEndOf="@+id/slot2"
-            app:layout_constraintTop_toTopOf="@id/slot1"
+        <Button
+            android:id="@+id/buttonVsPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background"
+            android:text="vs player"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/slot6"/>
-
-        <ImageView
-            android:id="@+id/slot4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="center"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/slot1"
-            app:layout_constraintEnd_toStartOf="@+id/slot5"
-            app:layout_constraintBottom_toTopOf="@+id/slot7"/>
-
-        <ImageView
-            android:id="@+id/slot5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="center"
-            app:layout_constraintStart_toEndOf="@+id/slot4"
-            app:layout_constraintTop_toTopOf="@id/slot4"
-            app:layout_constraintEnd_toStartOf="@+id/slot6"
-            app:layout_constraintBottom_toTopOf="@id/slot8"/>
-
-        <ImageView
-            android:id="@+id/slot6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="center"
-            app:layout_constraintStart_toEndOf="@+id/slot5"
-            app:layout_constraintTop_toTopOf="@id/slot4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/slot9"/>
-
-        <ImageView
-            android:id="@+id/slot7"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/slot4"
-            app:layout_constraintEnd_toStartOf="@+id/slot8"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <ImageView
-            android:id="@+id/slot8"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="center"
-            app:layout_constraintStart_toEndOf="@+id/slot7"
-            app:layout_constraintTop_toTopOf="@id/slot7"
-            app:layout_constraintEnd_toStartOf="@+id/slot9"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-        <ImageView
-            android:id="@+id/slot9"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="center"
-            app:layout_constraintStart_toEndOf="@+id/slot8"
-            app:layout_constraintTop_toTopOf="@id/slot7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/buttonVsAi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.wear.widget.BoxInsetLayout>

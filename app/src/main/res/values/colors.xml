@@ -4,5 +4,8 @@
     Because the window insets on round devices are larger than 15dp, this padding only applies
     to square screens.
     -->
-    <color name="bg">#50206C</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorGray">#333333</color>
+    <color name="colorSecondary">#FFFFFF</color>
+    <color name="bg">#000000</color>
 </resources>
